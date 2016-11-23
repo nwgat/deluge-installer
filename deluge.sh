@@ -45,6 +45,7 @@ systemctl status deluged deluge-web >> /dev/null
 
 echo ""
 echo "Deluge is now setup"
+echo "¤¤¤ WARNING webui is unprotected by default, SET PASSWORD WARNING ¤¤¤"
 echo ""
 echo "Details:"
 echo "WebUI: http://$ip:8122 (default password is deluge)"

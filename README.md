@@ -2,4 +2,5 @@
 * requires root
 * installs the required packages
 * creates a deluge user
+* input your username and password
 * opens ports

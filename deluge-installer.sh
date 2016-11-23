@@ -42,7 +42,6 @@ su -c 'deluge-console "config -s download_location /home/deluge/incomplete"' del
 su -c 'deluge-console "config -s move_completed_path /home/deluge/complete"' deluge
 su -c 'deluge-console "config -s listen_ports (9000, 9000)"' deluge
 su -c 'deluge-console "config -s move_completed true' deluge
-su -c 'pkill -9 deluged' deluge
 
 systemctl status deluged deluge-web >> /dev/null
 

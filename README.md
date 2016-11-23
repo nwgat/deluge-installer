@@ -1,4 +1,4 @@
-** work in progress**
+**work in progress**
 
 # a simple installer for deluge
 * requires root

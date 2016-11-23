@@ -1,3 +1,5 @@
+** work in progress**
+
 # a simple installer for deluge
 * requires root
 * installs the required packages

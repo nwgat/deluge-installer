@@ -15,7 +15,7 @@ echo "Installing Packages"
 apt-get install -qq software-properties-common -y >> /dev/null
 add-apt-repository ppa:deluge-team/ppa -y >> /dev/null
 apt-get update -qq >> /dev/null
-apt-get install -qq deluged deluge-web deluge-console nano wget python-pip ufw -y >> /dev/null
+apt-get install -qq deluged deluge-web deluge-console nano wget python-pip -y >> /dev/null
 pip install -q flexget >> /dev/null
 
 echo "Setting up Systemd"
@@ -32,10 +32,6 @@ adduser --disabled-password --gecos "" deluge
 
 su -c 'deluged && pkill -9 deluged' deluge
 su -c 'echo "$usr:$pw:10" >> $HOME/.config/deluge/auth' deluge
-
-systemctl start deluged && systemctl enable deluged >> /dev/null
-systemctl start deluge-web && systemctl enable deluge-web >> /dev/null
-
 su -c 'deluge-console "config -s allow_remote True"' deluge
 su -c 'deluge-console "config allow_remote"' deluge
 su -c 'deluge-console "config -s download_location /home/deluge/incomplete"' deluge
@@ -43,6 +39,8 @@ su -c 'deluge-console "config -s move_completed_path /home/deluge/complete"' del
 su -c 'deluge-console "config -s listen_ports (9000, 9000)"' deluge
 su -c 'deluge-console "config -s move_completed true' deluge
 
+systemctl start deluged && systemctl enable deluged >> /dev/null
+systemctl start deluge-web && systemctl enable deluge-web >> /dev/null
 systemctl status deluged deluge-web >> /dev/null
 
 echo ""

@@ -49,10 +49,7 @@ su -c 'deluge-console "config -s outgoing_ports (49164, 49164) "' deluge
 su -c 'deluge-console "config -s random_port false"' deluge
 su -c 'deluge-console "config -s move_completed true"' deluge
 
-
-sed -i 's/"https": false/"https": true/g' /home/deluge/.config/deluge/web.conf
-
-systemctl stop deluged deluge-web && systemctl start deluged deluge-web
+systemctl restart deluged deluge-web
 
 echo ""
 echo "Deluge is now setup"

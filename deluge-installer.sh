@@ -33,6 +33,7 @@ echo ""
 echo -e "\e[44mSetting up Deluge\e[0m"
 adduser --disabled-password --gecos "" deluge
 su -c 'deluged' deluge
+sleep 5
 pkill -9 deluged
 echo $usr:$pw:10 >> /home/deluge/.config/deluge/auth
 echo "auth added"

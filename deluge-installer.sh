@@ -45,7 +45,7 @@ su -c 'deluge-console "config -s download_location /home/deluge/incomplete"' del
 su -c 'deluge-console "config -s move_completed_path /home/deluge/complete"' deluge
 su -c 'deluge-console "config -s listen_ports (49164, 49164)"' deluge
 su -c 'deluge-console "config -s random_outgoing_ports false"' deluge
-su -c 'deluge-console "config -s outgoing_ports: (49164, 49164) "' deluge
+su -c 'deluge-console "config -s outgoing_ports (49164, 49164) "' deluge
 su -c 'deluge-console "config -s random_port false"' deluge
 su -c 'deluge-console "config -s move_completed true"' deluge
 

@@ -1,5 +1,4 @@
 ip=`(hostname -I | sed 's/ //g')`
-echo $ip
 
 echo ""
 echo "## nwgat.ninja deluge installer ##"
@@ -11,29 +10,30 @@ echo "Password"
 read -e pw
 
 echo ""
-echo "Installing Packages"
-echo ""
+echo -e "\e[44mInstalling Packages\e[0m"
 apt-get install -qq software-properties-common -y
 add-apt-repository ppa:deluge-team/ppa -y
 apt-get update -qq
 apt-get install -qq deluged deluge-web deluge-console nano wget python-pip ufw -y
 pip install -q flexget
 echo ""
-echo "Setting up Systemd"
+echo -e "\e[44mSetting up Systemd\e[0m"
 wget -q https://raw.githubusercontent.com/nwgat/etc/master/deluge/deluged.service -O /etc/systemd/system/deluged.service
 wget -q https://raw.githubusercontent.com/nwgat/etc/master/deluge/deluge-web.service -O /etc/systemd/system/deluge-web.service
+echo "Done."
 systemctl daemon-reload
 echo ""
-echo "Opening Firewall"
+echo -e "\e[44mOpening Firewall\e[0m"
 ufw allow 8122
 ufw allow 58846
 ufw allow 9000
 echo ""
-echo "Setting up Deluge"
+echo -e "\e[44mSetting up Deluge\e[0m"
 adduser --disabled-password --gecos "" deluge
 su -c 'deluged' deluge
 su -c 'pkill -9 deluged' deluge
 echo '$usr:$pw:10' >> /home/deluge/.config/deluge/auth
+echo "auth added"
 chown deluge /home/deluge/.config/deluge/auth
 systemctl start deluged deluge-web && systemctl enable deluged deluge-web
 
@@ -49,7 +49,7 @@ echo ""
 echo "Deluge is now setup"
 echo "¤¤¤ WARNING webui is unprotected by default, SET PASSWORD WARNING ¤¤¤"
 echo ""
-echo "Details:"
+echo -e "\e[44mDetails:\e[0m"
 echo "WebUI: http://$ip:8122 (default password is deluge)"
 echo "Remote Client: $ip:58846"
 echo "Username: $usr"

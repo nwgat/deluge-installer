@@ -36,6 +36,7 @@ su -c 'deluged' deluge
 sleep 5
 pkill -9 deluged
 echo $usr:$pw:10 >> /home/deluge/.config/deluge/auth
+sed -i 's/"https": false/"https": true/g' /home/deluge/.config/deluge/web.conf
 echo "auth added"
 chown deluge /home/deluge/.config/deluge/auth
 systemctl start deluged deluge-web && systemctl enable deluged deluge-web
@@ -44,6 +45,8 @@ su -c 'deluge-console "config -s allow_remote True"' deluge
 su -c 'deluge-console "config -s download_location /home/deluge/incomplete"' deluge
 su -c 'deluge-console "config -s move_completed_path /home/deluge/complete"' deluge
 su -c 'deluge-console "config -s listen_ports (9000, 9000)"' deluge
+su -c 'deluge-console "config -s random_outgoing_ports false"' deluge
+su -c 'deluge-console "config -s random_port false"' deluge
 su -c 'deluge-console "config -s move_completed true"' deluge
 
 systemctl stop deluged deluge-web && systemctl start deluged deluge-web
@@ -53,8 +56,8 @@ echo "Deluge is now setup"
 echo "¤¤¤ WARNING webui is unprotected by default, SET PASSWORD WARNING ¤¤¤"
 echo ""
 echo -e "\e[44mDetails:\e[0m"
-echo "WebUI: http://$ip:8112 (default password is deluge)"
-echo "Remote Client: $ip:58846"
+echo "WebUI: https://$ip:8112 (default password is deluge)"
+echo "Remote Client: $ip"
 echo "Username: $usr"
 echo "Password: $pw"
 echo ""

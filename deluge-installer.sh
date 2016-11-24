@@ -18,10 +18,10 @@ apt-get install -qq deluged deluge-web deluge-console nano wget python-pip ufw -
 pip install -q flexget
 echo ""
 echo -e "\e[44mSetting up Systemd\e[0m"
-#cp systemd/deluged.service /etc/systemd/system/
-#cp systemd/deluge-web.service /etc/systemd/system/
-wget https://raw.githubusercontent.com/nwgat/etc/master/deluge/deluged.service -O /etc/systemd/system/deluged.service
-wget https://raw.githubusercontent.com/nwgat/etc/master/deluge/deluge-web.service -O /etc/systemd/system/deluge-web.service
+cp systemd/deluged.service /etc/systemd/system/
+cp systemd/deluge-web.service /etc/systemd/system/
+#wget https://raw.githubusercontent.com/nwgat/etc/master/deluge/deluged.service -O /etc/systemd/system/deluged.service
+#wget https://raw.githubusercontent.com/nwgat/etc/master/deluge/deluge-web.service -O /etc/systemd/system/deluge-web.service
 echo "Done."
 systemctl daemon-reload
 echo ""

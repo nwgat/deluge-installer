@@ -12,25 +12,25 @@ read -e pw
 
 echo ""
 echo "Installing Packages"
+echo ""
 apt-get install -qq software-properties-common -y
 add-apt-repository ppa:deluge-team/ppa -y
 apt-get update -qq
 apt-get install -qq deluged deluge-web deluge-console nano wget python-pip ufw -y
 pip install -q flexget
-
+echo ""
 echo "Setting up Systemd"
-wget https://raw.githubusercontent.com/nwgat/etc/master/deluge/deluged.service -O /etc/systemd/system/deluged.service
-wget https://raw.githubusercontent.com/nwgat/etc/master/deluge/deluge-web.service -O /etc/systemd/system/deluge-web.service
+wget -q https://raw.githubusercontent.com/nwgat/etc/master/deluge/deluged.service -O /etc/systemd/system/deluged.service
+wget -q https://raw.githubusercontent.com/nwgat/etc/master/deluge/deluge-web.service -O /etc/systemd/system/deluge-web.service
 systemctl daemon-reload
-
+echo ""
 echo "Opening Firewall"
 ufw allow 8122
 ufw allow 58846
 ufw allow 9000
-
+echo ""
 echo "Setting up Deluge"
 adduser --disabled-password --gecos "" deluge
-
 su -c 'deluged' deluge
 su -c 'pkill -9 deluged' deluge
 echo '$usr:$pw:10' >> /home/deluge/.config/deluge/auth

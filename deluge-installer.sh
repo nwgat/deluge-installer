@@ -28,7 +28,7 @@ echo ""
 echo -e "\e[44mOpening Firewall\e[0m"
 ufw allow 8112
 ufw allow 58846
-ufw allow 9000
+ufw allow 49164
 echo ""
 echo -e "\e[44mSetting up Deluge\e[0m"
 adduser --disabled-password --gecos "" deluge
@@ -43,10 +43,13 @@ sleep 5
 su -c 'deluge-console "config -s allow_remote True"' deluge
 su -c 'deluge-console "config -s download_location /home/deluge/incomplete"' deluge
 su -c 'deluge-console "config -s move_completed_path /home/deluge/complete"' deluge
-su -c 'deluge-console "config -s listen_ports (9000, 9000)"' deluge
+su -c 'deluge-console "config -s listen_ports (49164, 49164)"' deluge
 su -c 'deluge-console "config -s random_outgoing_ports false"' deluge
+su -c 'deluge-console "config -s outgoing_ports: (49164, 49164) "' deluge
 su -c 'deluge-console "config -s random_port false"' deluge
 su -c 'deluge-console "config -s move_completed true"' deluge
+
+
 sed -i 's/"https": false/"https": true/g' /home/deluge/.config/deluge/web.conf
 
 systemctl stop deluged deluge-web && systemctl start deluged deluge-web

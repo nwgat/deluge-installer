@@ -26,7 +26,7 @@ echo "Done."
 systemctl daemon-reload
 echo ""
 echo -e "\e[44mOpening Firewall\e[0m"
-ufw allow 8122
+ufw allow 8112
 ufw allow 58846
 ufw allow 9000
 echo ""

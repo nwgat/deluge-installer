@@ -36,7 +36,7 @@ echo '$usr:$pw:10' >> /home/deluge/.config/deluge/auth
 echo "auth added"
 chown deluge /home/deluge/.config/deluge/auth
 systemctl start deluged deluge-web && systemctl enable deluged deluge-web
-
+sleep 5
 su -c 'deluge-console "config -s allow_remote True"' deluge
 su -c 'deluge-console "config -s download_location /home/deluge/incomplete"' deluge
 su -c 'deluge-console "config -s move_completed_path /home/deluge/complete"' deluge

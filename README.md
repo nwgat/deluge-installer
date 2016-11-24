@@ -10,7 +10,7 @@
 * creates a deluge user
 * input your deluge username and password
 
-# Defaults
+### Defaults
 * tested on Ubuntu 16.04 and in LXC
 * ufw opens 8122 (webui)
 * ufw opens 58846 (remote client)

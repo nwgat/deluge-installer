@@ -36,7 +36,6 @@ su -c 'deluged' deluge
 sleep 5
 pkill -9 deluged
 echo $usr:$pw:10 >> /home/deluge/.config/deluge/auth
-sed -i 's/"https": false/"https": true/g' /home/deluge/.config/deluge/web.conf
 echo "auth added"
 chown deluge /home/deluge/.config/deluge/auth
 systemctl start deluged deluge-web && systemctl enable deluged deluge-web
@@ -48,6 +47,7 @@ su -c 'deluge-console "config -s listen_ports (9000, 9000)"' deluge
 su -c 'deluge-console "config -s random_outgoing_ports false"' deluge
 su -c 'deluge-console "config -s random_port false"' deluge
 su -c 'deluge-console "config -s move_completed true"' deluge
+sed -i 's/"https": false/"https": true/g' /home/deluge/.config/deluge/web.conf
 
 systemctl stop deluged deluge-web && systemctl start deluged deluge-web
 

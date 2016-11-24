@@ -9,7 +9,7 @@ User=deluge
 Group=deluge
 UMask=027
 
-ExecStart=/usr/bin/deluge-web
+ExecStart=/usr/bin/deluge-web --ssl
 
 Restart=on-failure
 

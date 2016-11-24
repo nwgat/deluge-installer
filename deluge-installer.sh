@@ -1,4 +1,4 @@
-ip=`(hostname -I | sed 's/ //g')`
+ip=`(hostname -I | awk '{print $1}')`
 
 echo ""
 echo "## nwgat.ninja deluge installer ##"

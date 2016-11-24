@@ -1,12 +1,12 @@
 ip=`(hostname -I | awk '{print $1}')`
 
 echo ""
-echo "## nwgat.ninja deluge installer ##"
+echo -e "\e[44m## nwgat.ninja deluge installer ##\e[0m"
 echo "https://nwgat.ninja"
 echo ""
-echo "Username"
+echo -e "\e[44mUsername\e[0m"
 read -e usr
-echo "Password"
+echo -e "\e[44mPassword\e[0m"
 read -e pw
 
 echo ""

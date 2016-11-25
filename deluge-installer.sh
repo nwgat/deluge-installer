@@ -42,12 +42,15 @@ systemctl start deluged deluge-web && systemctl enable deluged deluge-web
 sleep 5
 su -c 'deluge-console "config -s allow_remote True"' deluge
 su -c 'deluge-console "config -s download_location /home/deluge/incomplete"' deluge
+su -c 'deluge-console "config -s move_completed true"' deluge
 su -c 'deluge-console "config -s move_completed_path /home/deluge/complete"' deluge
 su -c 'deluge-console "config -s listen_ports (49164, 49164)"' deluge
 su -c 'deluge-console "config -s random_outgoing_ports false"' deluge
 su -c 'deluge-console "config -s outgoing_ports (49164, 49164) "' deluge
 su -c 'deluge-console "config -s random_port false"' deluge
-su -c 'deluge-console "config -s move_completed true"' deluge
+su -c 'deluge-console "config -s max_active_downloading 100"' deluge
+su -c 'deluge-console "config -s max_active_limit 100"' deluge
+su -c 'deluge-console "config -s max_active_seeding 100"' deluge
 
 systemctl restart deluged deluge-web
 

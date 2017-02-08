@@ -41,7 +41,6 @@ wget -q https://github.com/JohnDoee/deluge-streaming/releases/download/0.7.1/Str
 echo $usr:$pw:10 >> /home/deluge/.config/deluge/auth
 echo "auth added"
 chown deluge /home/deluge/.config/deluge/auth
-chown deluge /home/deluge/.config/deluge/plugins/ltConfig-0.2.5.0-py2.7.egg
 chown deluge /home/deluge/.config/deluge/plugins/Streaming-0.7.1-py2.7.egg
 systemctl start deluged deluge-web && systemctl enable deluged deluge-web
 sleep 5

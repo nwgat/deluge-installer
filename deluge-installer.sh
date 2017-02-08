@@ -37,7 +37,6 @@ adduser --disabled-password --gecos "" deluge
 su -c 'deluged' deluge
 sleep 5
 pkill -9 deluged
-wget -q https://github.com/ratanakvlun/deluge-ltconfig/releases/download/v0.2.5.0/ltConfig-0.2.5.0-py2.7.egg -O /home/deluge/.config/deluge/plugins/ltConfig-0.2.5.0-py2.7.egg
 wget -q https://github.com/JohnDoee/deluge-streaming/releases/download/0.7.1/Streaming-0.7.1-py2.7.egg -O /home/deluge/.config/deluge/plugins/Streaming-0.7.1-py2.7.egg
 echo $usr:$pw:10 >> /home/deluge/.config/deluge/auth
 echo "auth added"

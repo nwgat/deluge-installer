@@ -56,7 +56,7 @@ su -c 'deluge-console "config -s max_active_downloading 100"' deluge
 su -c 'deluge-console "config -s max_active_limit 100"' deluge
 su -c 'deluge-console "config -s max_active_seeding 100"' deluge
 
-systemctl restart deluged deluge-web
+systemctl restart deluged
 
 echo ""
 echo "Deluge is now setup"

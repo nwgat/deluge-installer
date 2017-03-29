@@ -42,7 +42,7 @@ echo $usr:$pw:10 >> /home/deluge/.config/deluge/auth
 echo "auth added"
 chown deluge /home/deluge/.config/deluge/auth
 chown deluge /home/deluge/.config/deluge/plugins/Streaming-0.7.1-py2.7.egg
-systemctl start deluged deluge-web && systemctl enable deluged deluge-web
+systemctl start deluged && systemctl enable deluged
 sleep 5
 su -c 'deluge-console "config -s allow_remote True"' deluge
 su -c 'deluge-console "config -s download_location /home/deluge/incomplete"' deluge
@@ -60,7 +60,8 @@ systemctl restart deluged deluge-web
 
 echo ""
 echo "Deluge is now setup"
-echo "¤¤¤ WARNING webui is unprotected by default, SET PASSWORD WARNING ¤¤¤"
+echo "¤¤¤ WebUI is disabled by defult ¤¤¤"
+echo "enable with systemctl start deluge-web && systemctl enable deluge-web"
 echo ""
 echo -e "\e[44mDetails:\e[0m"
 echo "WebUI: https://$ip:8112 (default password is deluge)"
